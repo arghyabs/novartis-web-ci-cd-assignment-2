@@ -12,7 +12,15 @@ gcloud auth activate-service-account ${ACCOUNT_ID} --key-file ${HOME}/gcloud-ser
 
 gcloud config set project $PROJECT_ID
 
-gcloud --quiet config set container/cluster $CLUSTER_NAME
+#gcloud --quiet config set container/cluster $CLUSTER_NAME
+
+EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filter="name=$CLUSTER_NAME")
+if [ "${EXISTING_CLUSTER}" != $CLUSTER_NAME ]
+then
+  # Create cluster if it doesn't already exist
+  gcloud --quiet container clusters create $CLUSTER_NAME --num-nodes=1
+else
+  gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 
 gcloud config set compute/zone $CLOUDSDK_COMPUTE_ZONE
 
