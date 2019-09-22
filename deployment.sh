@@ -21,6 +21,7 @@ then
   gcloud --quiet container clusters create $CLUSTER_NAME --num-nodes=1
 else
   gcloud --quiet container clusters get-credentials $CLUSTER_NAME
+fi
 
 gcloud config set compute/zone $CLOUDSDK_COMPUTE_ZONE
 
