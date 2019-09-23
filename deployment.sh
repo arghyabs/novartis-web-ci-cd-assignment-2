@@ -18,7 +18,7 @@ EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filte
 if [ "${EXISTING_CLUSTER}" != $CLUSTER_NAME ]
 then
   # Create cluster if it doesn't already exist
-  gcloud --quiet container clusters create $CLUSTER_NAME
+  gcloud --quiet container clusters create $CLUSTER_NAME --num-nodes=1
 else
   gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 fi
@@ -33,7 +33,7 @@ echo "${IMAGE} ${IMG_TAG}"
 docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:latest
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:latest
-kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=${IMAGE}:latest
+kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=${IMAGE}
 
 #docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
 
