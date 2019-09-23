@@ -35,6 +35,7 @@ docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
 gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
 kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
+kubectl get pods
 
 #docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
 
