@@ -34,7 +34,7 @@ docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
 gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
-kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
+#kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
 
 #docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
 
