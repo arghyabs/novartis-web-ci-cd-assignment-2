@@ -29,10 +29,11 @@ gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 
 # service docker start
 
+echo "${IMAGE} ${IMG_TAG}"
 docker build -t ${IMAGE} .
-docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:${IMG_TAG}
-gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:${IMG_TAG}
-kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=${IMAGE}:${IMG_TAG}
+docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:latest
+gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:latest
+kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=${IMAGE}:latest
 
 #docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
 
