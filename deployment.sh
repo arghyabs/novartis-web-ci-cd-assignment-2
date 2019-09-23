@@ -32,6 +32,7 @@ gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 echo "${IMAGE} ${IMG_TAG}"
 docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:latest
+gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:latest
 kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=${IMAGE}
 
