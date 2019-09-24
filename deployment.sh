@@ -35,6 +35,7 @@ docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 #kubectl delete deployment ${DEPLOYMENT_NAME}
+kubectl delete pod ${IMAGE} --now
 kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 kubectl get pods
 
