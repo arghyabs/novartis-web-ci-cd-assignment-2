@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node hello.test.js && htmlhint"
+    "test": "node hello.test.js && htmlhint *.html"
   },
   "keywords": [
     "gcloud",
