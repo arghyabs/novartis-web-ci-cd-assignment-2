@@ -18,7 +18,7 @@ EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filte
 if [ "${EXISTING_CLUSTER}" != $CLUSTER_NAME ]
 then
   # Create cluster if it doesn't already exist
-  gcloud --quiet container clusters create $CLUSTER_NAME
+  gcloud --quiet container clusters create $CLUSTER_NAME --num-nodes=1
 else
   gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 fi
@@ -31,11 +31,11 @@ gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 
 echo "${IMAGE} ${IMG_TAG}"
 docker build -t ${IMAGE} .
-docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
+docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 gcloud auth configure-docker
-gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
-kubectl delete deployment ${DEPLOYMENT_NAME}
-kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:0.1.0
+gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
+#kubectl delete deployment ${DEPLOYMENT_NAME}
+kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 kubectl get pods
 
 #docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
