@@ -40,7 +40,7 @@ gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 #then
 #kubectl delete  deployment ${DEPLOYMENT_NAME}
 #fi
-kubectl delete pods --all --ignore-not-found
+kubectl delete deployment --all --ignore-not-found
 kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 kubectl get pods
 
