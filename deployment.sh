@@ -30,19 +30,18 @@ gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 # service docker start
 
 echo "${IMAGE} ${CIRCLE_SHA1}"
-docker build -t ${IMAGE} .
-docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-gcloud auth configure-docker
-gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-#kubectl delete deployment ${DEPLOYMENT_NAME}
+#docker build -t ${IMAGE} .
+#docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
+#gcloud auth configure-docker
+#gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
+##kubectl delete deployment ${DEPLOYMENT_NAME}
 #kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-kubectl apply deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-kubectl get pods
+#kubectl get pods
 
-#docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
+docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
 
-#gcloud docker -- push gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
+docker push gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
 
-#kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
+kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
 
 echo " Successfully deployed to ${DEPLOYMENT_ENVIRONMENT}"
