@@ -40,7 +40,8 @@ echo "${IMAGE} ${CIRCLE_SHA1}"
 
 docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
 
-docker push gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
+gcloud auth configure-docker
+gcloud docker -- push gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
 
 kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
 
