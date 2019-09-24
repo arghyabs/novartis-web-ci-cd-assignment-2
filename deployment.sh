@@ -34,12 +34,6 @@ docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-
-#FIND_DEPLOYMENT=$(kubectl get deployment --field-selector metadata.name=${DEPLOYMENT_NAME})
-#if [ "${FIND_DEPLOYMENT}" == $DEPLOYMENT_NAME ]
-#then
-#kubectl delete  deployment ${DEPLOYMENT_NAME}
-#fi
 kubectl delete deployment --all --ignore-not-found
 kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 kubectl get pods
