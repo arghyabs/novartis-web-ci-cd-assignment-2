@@ -18,7 +18,7 @@ EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filte
 if [ "${EXISTING_CLUSTER}" != $CLUSTER_NAME ]
 then
   # Create cluster if it doesn't already exist
-  gcloud --quiet container clusters create $CLUSTER_NAME --num-nodes=1
+  gcloud --quiet container clusters create $CLUSTER_NAME
 else
   gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 fi
