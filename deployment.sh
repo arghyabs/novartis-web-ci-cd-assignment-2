@@ -29,7 +29,7 @@ gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 
 # service docker start
 
-echo "${IMAGE} ${IMG_TAG}"
+echo "${IMAGE} ${CIRCLE_SHA1}"
 docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 gcloud auth configure-docker
