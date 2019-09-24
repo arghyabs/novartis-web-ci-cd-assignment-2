@@ -35,7 +35,7 @@ docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 
-FIND_DEPLOYMENT=$(kubectl get deployments --filter="name=$DEPLOYMENT_NAME")
+FIND_DEPLOYMENT=$(kubectl get deployments --field-selector="name=$DEPLOYMENT_NAME")
 if [ "${FIND_DEPLOYMENT}" == $DEPLOYMENT_NAME ]
 then
 kubectl delete deployment ${DEPLOYMENT_NAME}
