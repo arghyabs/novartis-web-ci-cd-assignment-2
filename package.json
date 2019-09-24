@@ -5,14 +5,12 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha"
+    "test": "node hello.test.js ; mocha"
   },
   "keywords": [
     "gcloud",
     "node"
   ],
-  "author": "Collins",
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
