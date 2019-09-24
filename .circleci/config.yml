@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Install node packages
           command: |
-            npm install && npm install htmlhint -g
+            npm install
 
       - run:
           name: Start app
