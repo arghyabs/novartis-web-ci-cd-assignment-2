@@ -10,9 +10,16 @@
 //   });
 // });
 
-var  assert = require('chai').assert;
+var  assert = require('assert');
 var greetings = require('../hello.js');
 
-assert.strictEqual(greetings.sayHelloInEnglish(), 'HELLO', 'our "Hello" function works');
-assert.strictEqual(greetings.sayHelloInSpanish(),'Hola','our "Hola" function works');
-assert.strictEqual(greetings.sayHelloInFrench(),'Bonjour','our "Bonjour" function works');
+describe('Calculator Tests', function() {
+	it('our "Hello" function works', function (done) {
+		assert.equal('HELLO', greetings.sayHelloInEnglish());
+		done();
+	});
+});
+
+//assert.strictEqual(greetings.sayHelloInEnglish(), 'HELLO', 'our "Hello" function works');
+//assert.strictEqual(greetings.sayHelloInSpanish(),'Hola','our "Hola" function works');
+//assert.strictEqual(greetings.sayHelloInFrench(),'Bonjour','our "Bonjour" function works');
