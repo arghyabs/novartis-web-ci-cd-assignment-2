@@ -38,7 +38,7 @@ gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 kubectl delete service $CONTAINER_NAME --ignore-not-found
 kubectl delete deployment $DEPLOYMENT_NAME --ignore-not-found
 kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-kubectl expose deployment ${DEPLOYMENT_NAME} --type=LoadBalancer --port 80 --target-port 8080
+kubectl expose deployment ${DEPLOYMENT_NAME} --type=LoadBalancer --port 80 --target-port 3000
 kubectl get pods,po,svc,deployment,service
 
 echo " Successfully deployed to ${DEPLOYMENT_ENVIRONMENT}"
