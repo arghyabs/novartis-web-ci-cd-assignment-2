@@ -12,6 +12,8 @@ gcloud auth activate-service-account ${ACCOUNT_ID} --key-file ${HOME}/gcloud-ser
 
 gcloud config set project $PROJECT_ID
 
+gcloud config set compute/zone $CLOUDSDK_COMPUTE_ZONE
+
 #gcloud --quiet config set container/cluster $CLUSTER_NAME
 
 EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filter="name=$CLUSTER_NAME")
@@ -23,25 +25,20 @@ else
   gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 fi
 
-gcloud config set compute/zone $CLOUDSDK_COMPUTE_ZONE
-
 gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 
 # service docker start
 
 echo "${IMAGE} ${CIRCLE_SHA1}"
+
 docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-kubectl delete deployment --all --ignore-not-found
+kubectl delete service $CONTAINER_NAME --ignore-not-found
+kubectl delete deployment $DEPLOYMENT_NAME --ignore-not-found
 kubectl create deployment ${DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-kubectl get pods
-
-#docker build -t gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1 .
-
-#gcloud docker -- push gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
-
-#kubectl set image deployment/${DEPLOYMENT_NAME} ${CONTAINER_NAME}=gcr.io/${PROJECT_ID}/${REG_ID}:$CIRCLE_SHA1
+kubectl expose deployment ${DEPLOYMENT_NAME} --type=LoadBalancer --port 80 --target-port 8080
+kubectl get pods,po,svc,deployment,service
 
 echo " Successfully deployed to ${DEPLOYMENT_ENVIRONMENT}"
