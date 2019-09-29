@@ -34,9 +34,10 @@ jobs:
             apt-get -y update
             apt-get install -y default-jre
             apt-get install -y default-jdk
+            apt-get install -y software-properties-common
             add-apt-repository ppa:webupd8team/java
-            apt-get update
-            apt-get install oracle-java8-installer
+            apt-get -y update
+            apt-get install -y oracle-java8-installer
             gedit ~/.bashrc
             export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
             export PATH=${PATH}:${JAVA_HOME}/bin
