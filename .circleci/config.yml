@@ -49,6 +49,7 @@ jobs:
             npm install selenium-standalone@latest -g
             npm install chromedriver
             npm install jdk
+            npm install -g node-gyp-install
             npm install -g node-gyp
             node-gyp configure build
 
