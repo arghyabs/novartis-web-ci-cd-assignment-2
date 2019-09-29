@@ -48,7 +48,7 @@ jobs:
             npm install nightwatch --save-dev
             npm install selenium-standalone@latest -g
             npm install chromedriver
-            npm install jdk
+            npm install jdk --save-dev
             #npm install -g node-gyp-install
             #npm install -g node-gyp
             #node-gyp configure build
