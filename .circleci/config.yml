@@ -40,10 +40,10 @@ jobs:
       - run:
           name: Install node packages
           command: |
-            npm install strict-mode
-            npm install nightwatch --save-dev strict-mode
-            npm install selenium-standalone@latest -g strict-mode
-            npm install chromedriver strict-mode
+            npm install -g n
+            npm install nightwatch --save-dev
+            npm install selenium-standalone@latest -g
+            npm install chromedriver
 
       - run:
           name: Start app
