@@ -55,7 +55,7 @@ jobs:
           name: Run tests
           command: |
             npm test
-            npm test-e2e
+            npm run test-e2e
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
