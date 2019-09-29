@@ -23,12 +23,18 @@ jobs:
       - checkout
       - setup_remote_docker
 
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}-{{ arch}}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
       - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}-{{ arch}}
 
       - run:
           name: create docker network
@@ -56,13 +62,13 @@ jobs:
             npm test
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-{{ checksum "package.json" }}-{{ arch}}
           - v1-dependencies-
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}-{{ arch}}
       
       - run:
           name: Build and Deploy
