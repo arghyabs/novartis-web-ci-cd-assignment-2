@@ -47,7 +47,7 @@ jobs:
             npm install selenium-standalone@latest -g
             npm install chromedriver
             npm install java
-            npm install -g jdk
+            npm install --save-dev jdk
 
       - run:
           name: Start app
