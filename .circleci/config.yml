@@ -43,7 +43,7 @@ jobs:
             npm install
             npm install nightwatch --save-dev
             npm install selenium-standalone@latest -g
-            npm install chromedriver
+            npm install chromedriver strict-mode
 
       - run:
           name: Start app
