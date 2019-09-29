@@ -48,8 +48,8 @@ jobs:
             npm install nightwatch --save-dev
             npm install selenium-standalone@latest -g
             npm install chromedriver
-            npm install java
             npm install jdk
+            npm install java
             npm rebuild
 
       - run:
