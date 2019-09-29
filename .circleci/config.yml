@@ -28,7 +28,6 @@ jobs:
       - run:
           name: Install node packages
           command: |
-                  #npm install
             cd /usr/local tar --strip-components 1 -xzf ~/workspace/bin/node-v8.2.1-linux-x64.tar.gz
             which node
             node -v
