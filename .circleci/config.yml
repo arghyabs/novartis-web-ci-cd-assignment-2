@@ -43,8 +43,9 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_12.x | bash -
             apt-get install -y nodejs
             npm install --save-dev nightwatch chromedriver selenium-server selenium-standalone@latest
-            npm install --save-dev jdk
-            npm install --save-dev java
+            #npm install --save-dev jdk
+            #npm install --save-dev java
+            apt-get install default-jdk
             node-gyp configure build
             #npm install
             #npm install -g node-gyp
