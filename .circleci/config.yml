@@ -45,7 +45,7 @@ jobs:
             npm install --save-dev nightwatch chromedriver selenium-server selenium-standalone@latest
             #npm install --save-dev jdk
             #npm install --save-dev java
-            apt-get install default-jdk
+            apt-get install -y default-jdk
             node-gyp configure build
             #npm install
             #npm install -g node-gyp
