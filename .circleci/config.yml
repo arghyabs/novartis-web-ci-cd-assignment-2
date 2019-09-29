@@ -65,15 +65,15 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
       - run:
-        name: install npm dependencies
-        command: npm install
+          name: install npm dependencies
+          command: npm install
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
           - ./node_modules
-    - run: # check that builds properly
-        name: build
-        command: npm run build
+      - run: # check that builds properly
+          name: build
+          command: npm run build
 
       - run:
           name: Start app
