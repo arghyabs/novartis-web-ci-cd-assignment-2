@@ -2,9 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-            #- image: wecs/circle-ci-gcloud-node:0.1.0
-      - image: circleci/node:7.10
-      - image: selenium/standalone-chrome:3.11.0
+      - image: wecs/circle-ci-gcloud-node:0.1.0
+        # - image: circleci/node:7.10
+        #- image: selenium/standalone-chrome:3.11.0
     working_directory: ~/repo
     environment:
       DEPLOYMENT_NAME: ci-cd
@@ -23,34 +23,36 @@ jobs:
       - checkout
       - setup_remote_docker
         #- run: chmod -R 777 ~/workspace
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+        #- restore_cache:
+        #  keys:
+        # - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          # - v1-dependencies-
 
-      - run: yarn install
+            #- run: yarn install
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+        #- save_cache:
+        # paths:
+        # - node_modules
+        # key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: create docker network
-          command: docker network create grid
+        #- run:
+        # name: create docker network
+        # command: docker network create grid
 
-      - run:
-          name: install selenium-hub
-          command: docker run -d --rm -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.11.0
+        #- run:
+        # name: install selenium-hub
+        # command: docker run -d --rm -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.11.0
 
-      - run:
-          name: install selenium-node
-          command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.11.0
-
+        #- run:
+        # name: install selenium-node
+        # command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.11.0
+        #
       - run:
           name: Install node packages
           command: |
+            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            sudo apt-get install nodejs
             npm install
       - run:
           name: Start app
