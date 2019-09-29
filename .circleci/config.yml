@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Install node packages
           command: |
-            npm install
+            npm install strict-mode
 
       - run:
           name: Start app
