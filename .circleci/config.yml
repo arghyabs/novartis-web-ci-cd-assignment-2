@@ -29,6 +29,7 @@ jobs:
           name: Install node packages
           command: |
             npm install
+            npm install --save-dev jdk
       - run:
           name: Start app
           command: |
