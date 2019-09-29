@@ -5,7 +5,7 @@ jobs:
             #- image: wecs/circle-ci-gcloud-node:0.1.0
       - image: circleci/node:7.10
       - image: selenium/standalone-chrome:3.11.0
-    working_directory: ~/workspace
+    working_directory: ~/repo
     environment:
       DEPLOYMENT_NAME: ci-cd
       PROJECT_ID: web-ci-cd
@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: chmod -R 777 ~/workspace
+        #- run: chmod -R 777 ~/workspace
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
