@@ -40,6 +40,7 @@ jobs:
       - run:
           name: Install node packages
           command: |
+            apt-get install -y sudo
             sudo npm cache clean -f
             sudo npm install -g n
             sudp n stable
