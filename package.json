@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha",
-    "test-e2e": "nightwatch"
+    "test": "mocha"
   },
   "keywords": [
     "gcloud",

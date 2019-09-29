@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: wecs/circle-ci-gcloud-node:0.1.0
-        #- image: selenium/standalone-chrome:3.11.0
     working_directory: ~/workspace
     environment:
       DEPLOYMENT_NAME: ci-cd
@@ -25,56 +24,11 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-            #- run:
-            #name: create docker network
-            #command: docker network create grid
-
-            #- run:
-            #name: install selenium-hub
-            #command: docker run -d --rm -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.11.0
-
-            #- run:
-            #name: install selenium-node
-            #command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.11.0
 
       - run:
           name: Install node packages
           command: |
-            curl -sL https://deb.nodesource.com/setup_12.x | bash -
-            apt-get install -y nodejs
-            # npm install --save-dev nightwatch chromedriver selenium-server selenium-standalone@latest
-            #npm install --save-dev jdk
-            #npm install --save-dev java
-            apt-get -y update
-            #apt-get install -y google-chrome-stable
-            apt-get install -y openjdk-8-jdk
-            node-gyp configure build
-            npm install -g npm@latest
-            #npm install
-            #npm install -g node-gyp
-            #npm update
-            #npm install nightwatch --save-dev
-            #npm install selenium-standalone@latest -g
-            #npm install chromedriver
-            #npm install jdk --save-dev
-            #npm install -g node-gyp-install
-            #npm install -g node-gyp
-            #node-gyp configure build
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      - run:
-          name: install npm dependencies
-          command: npm install
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-          - ./node_modules
-      - run: # check that builds properly
-          name: build
-          command: npm run build
-
+            npm install
       - run:
           name: Start app
           command: |
@@ -83,7 +37,6 @@ jobs:
           name: Run tests
           command: |
             npm test
-            npm run test-e2e
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -99,5 +52,4 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ./deployment.sh
-            fi  
-  
+            fi
