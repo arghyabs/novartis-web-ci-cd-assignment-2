@@ -40,13 +40,12 @@ jobs:
       - run:
           name: Install node packages
           command: |
-            apt-get install -y sudo
-            sudo npm cache clean -f
-            sudo npm install -g n
-            sudp n stable
-            sudo npm install nightwatch --save-dev
-            sudo npm install selenium-standalone@latest -g
-            sudo npm install chromedriver
+            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            apt-get install -y nodejs
+            #npm install
+            npm install nightwatch --save-dev
+            npm install selenium-standalone@latest -g
+            npm install chromedriver
 
       - run:
           name: Start app
