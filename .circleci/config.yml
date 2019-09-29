@@ -46,8 +46,8 @@ jobs:
             npm install nightwatch --save-dev
             npm install selenium-standalone@latest -g
             npm install chromedriver
-            npm install java
-            npm install --save-dev jdk
+            npm install java --save-dev
+            npm install jdk --save-dev
 
       - run:
           name: Start app
