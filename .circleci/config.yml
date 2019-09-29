@@ -43,11 +43,13 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_12.x | bash -
             apt-get install -y nodejs
             #npm install
+            npm rebuild
             npm install nightwatch --save-dev
             npm install selenium-standalone@latest -g
             npm install chromedriver
             npm install java --save-dev
             npm install jdk --save-dev
+            npm rebuild
 
       - run:
           name: Start app
