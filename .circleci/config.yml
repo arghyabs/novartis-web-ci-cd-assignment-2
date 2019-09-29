@@ -46,7 +46,7 @@ jobs:
             #npm install --save-dev jdk
             #npm install --save-dev java
             apt-get -y update
-            apt-get install -y google-chrome-stable
+            #apt-get install -y google-chrome-stable
             apt-get install openjdk-8-jdk
             node-gyp configure build
             npm install -g npm@latest
