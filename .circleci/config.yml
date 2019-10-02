@@ -2,8 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: wecs/circle-ci-gcloud-node:0.1.0
-        # - image: circleci/node:7.10
+            #- image: wecs/circle-ci-gcloud-node:0.1.0
+      - image: circleci/node:latest
         #- image: selenium/standalone-chrome:3.11.0
     working_directory: ~/repo
     environment:
@@ -51,8 +51,8 @@ jobs:
       - run:
           name: Install node packages
           command: |
-            curl -sL https://deb.nodesource.com/setup_12.x | bash -
-            apt-get install -y nodejs
+            curl -sL https://deb.nodesource.com/setup_12.x |sudo -E  bash -
+            sudo apt-get install nodejs
             npm install
             npm install jdk --save-dev
             npm install nightwatch --save-dev 
