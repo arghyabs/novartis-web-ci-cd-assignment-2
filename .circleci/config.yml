@@ -62,6 +62,10 @@ jobs:
             sudo npm install chromedriver --save-dev
             sudo npm install chrome --save-dev
             sudo chmod -R 777 ./node_modules
+            sudo npm install webdriver-manager
+            sudo webdriver-manager clean
+            sudo webdriver-manager update
+            sudo webdriver-manager start
             #sudo npm install chrome
             #sudo npm install selenium-standalone@latest --save-dev
             #sudo ./node_modules/.bin/selenium-standalone install
