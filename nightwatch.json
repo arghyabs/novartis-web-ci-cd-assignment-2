@@ -21,7 +21,10 @@
       "desiredCapabilities": {
         "browserName": "chrome",
         "javascriptEnabled": true,
-        "acceptSslCerts": true
+        "acceptSslCerts": true,
+	"chromeOptions" : {
+		"args" : ["--ignore-ssl-errors=true", "start-maximized", "test-type"]
+	}
       }
     }
   }
