@@ -57,6 +57,7 @@ jobs:
             npm install jdk --save-dev
             npm install nightwatch --save-dev 
             npm install chromedriver --save-dev
+            npm install chrome --save-dev
       - run:
           name: Start app
           command: |
