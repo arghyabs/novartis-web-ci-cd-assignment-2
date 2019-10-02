@@ -29,8 +29,7 @@
               "no-sandbox",
               "disable-gpu",
               "ignore-certificate-errors"
-            ],
-	    "binary" :"./node_modules/.bin/chrome.exe"
+            ]
 	}
       }
     }
