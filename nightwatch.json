@@ -9,7 +9,7 @@
     "host" : "localhost",
     "port" : 4444,
     "cli_args" : {
-      "webdriver.chrome.driver" : "./node_modules/selenium-standalone/node_modules/chromedriver/lib/chromedriver/chromedriver.exe"
+      "webdriver.chrome.driver" : "./node_modules/webdriver-manager/selenium/chromedriver_77.0.3865.40"
     }
   },
 
