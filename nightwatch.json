@@ -4,11 +4,11 @@
 
   "selenium" : {
     "start_process" : true,
-    "server_path" : "node_modules/selenium-standalone/.selenium/selenium-server/3.141.5-server.jar",
+    "server_path" : "/node_modules/selenium-standalone/.selenium/selenium-server/3.141.5-server.jar",
     "log_path" : "",
     "port" : 4444,
     "cli_args" : {
-      "webdriver.chrome.driver" : "node_modules/chromedriver/lib/chromedriver/chromedriver"
+      "webdriver.chrome.driver" : "/node_modules/selenium-standalone/node_modules/chromedriver/lib/chromedriver/chromedriver"
     }
   },
 
