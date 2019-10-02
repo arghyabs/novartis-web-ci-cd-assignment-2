@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "test": "mocha",
     "e2e-test": "nightwatch -t test/main.js"
   },
   "keywords": [
