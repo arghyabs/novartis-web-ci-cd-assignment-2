@@ -56,6 +56,7 @@ jobs:
             npm install
             npm install nightwatch
             npm install chromedriver
+            apt-get install -y libglib-2.0
       - run:
           name: Start app
           command: |
