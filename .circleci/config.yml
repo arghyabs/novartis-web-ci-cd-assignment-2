@@ -59,7 +59,7 @@ jobs:
             sudo npm install nightwatch --save-dev  
             sudo npm install chromedriver --save-dev
             #sudo npm install chrome
-            sudo npm install selenium-standalone@latest -g
+            sudo npm install selenium-standalone@latest --save-dev
             #sudo selenium-standalone start
       - run:
           name: Start app
