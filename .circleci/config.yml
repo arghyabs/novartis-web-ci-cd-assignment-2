@@ -62,10 +62,11 @@ jobs:
             sudo npm install chromedriver --save-dev
             sudo npm install chrome --save-dev
             sudo chmod -R 777 ./node_modules
-            npm install protractor --save-dev
-            node ./node_modules/protractor/bin/webdriver-manager clean
-            node ./node_modules/protractor/bin/webdriver-manager update
-            node ./node_modules/protractor/bin/webdriver-manager start &
+            sudo npm install protractor --save-dev
+            npm run webdriver-manager
+            #node ./node_modules/protractor/bin/webdriver-manager clean
+            #node ./node_modules/protractor/bin/webdriver-manager update
+            #node ./node_modules/protractor/bin/webdriver-manager start &
             #sudo npm install webdriver-manager --save-dev
             #webdriver-manager clean
             #webdriver-manager update
