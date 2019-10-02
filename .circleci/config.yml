@@ -60,7 +60,7 @@ jobs:
             sudo npm install chromedriver --save-dev
             #sudo npm install chrome
             sudo npm install selenium-standalone@latest --save-dev
-            sudo ./node_modules/.bin/selenium-standalone install && sudo ./node_modules/.bin/selenium-standalone start
+            sudo ./node_modules/.bin/selenium-standalone install
             #sudo selenium-standalone start
       - run:
           name: Start app
