@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "e2e-test": "nightwatch"
+    "e2e-test": "nightwatch -t test/main.js"
   },
   "keywords": [
     "gcloud",

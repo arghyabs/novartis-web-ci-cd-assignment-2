@@ -54,11 +54,12 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_12.x |sudo -E  bash -
             sudo apt-get install nodejs
             npm install
-            npm install jdk --save-dev
-            npm install nightwatch --save-dev 
+            npm install default-jdk --save-dev
+            npm install nightwatch --save-dev  
             npm install chromedriver --save-dev
             npm install chrome --save-dev
-            chmod +x /home/circleci/repo/node_modules/chromedriver/lib/chromedriver/chromedriver
+            npm install selenium-standalone@latest --save-dev
+            selenium-standalone start
       - run:
           name: Start app
           command: |
