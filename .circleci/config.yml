@@ -63,7 +63,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            npm e2e-test
+            npm run e2e-test
             #npm test
       - restore_cache:
           keys:
