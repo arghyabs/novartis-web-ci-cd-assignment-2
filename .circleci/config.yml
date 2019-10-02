@@ -56,11 +56,11 @@ jobs:
             sudo npm install
             sudo apt install default-jdk
             #npm install jdk
-            sudo npm install nightwatch  
-            sudo npm install chromedriver
-            sudo npm install chrome
+            sudo npm install nightwatch -g  
+            sudo npm install chromedriver -g
+            sudo npm install chrome -g
             sudo npm install selenium-standalone@latest -g
-            sudo selenium-standalone start
+            #sudo selenium-standalone start
       - run:
           name: Start app
           command: |
