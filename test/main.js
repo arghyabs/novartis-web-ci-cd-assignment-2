@@ -1,7 +1,7 @@
 module.exports = {
-  'Searching nightwatch in youtube': function (browser) {
+  'Searching nightwatch in google': function (browser) {
     browser
-      .url("http://www.youtube.com/")
+      .url("http://www.google.com/")
       .pause(2000)
       .setValue('#search' , "Nightwatch js")
       .pause(2000)
