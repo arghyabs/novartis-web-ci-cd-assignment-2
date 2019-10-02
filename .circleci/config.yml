@@ -65,7 +65,7 @@ jobs:
             npm install protractor --save-dev
             node ./node_modules/protractor/bin/webdriver-manager clean
             node ./node_modules/protractor/bin/webdriver-manager update
-            node ./node_modules/protractor/bin/webdriver-manager start
+            node ./node_modules/protractor/bin/webdriver-manager start &
             #sudo npm install webdriver-manager --save-dev
             #webdriver-manager clean
             #webdriver-manager update
