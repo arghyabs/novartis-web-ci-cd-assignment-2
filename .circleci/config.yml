@@ -54,7 +54,7 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_12.x |sudo -E  bash -
             sudo apt-get install nodejs
             sudo npm install
-            #sudo apt install default-jdk
+            sudo apt install default-jdk
             #npm install jdk
             sudo npm install nightwatch  
             sudo npm install chromedriver
