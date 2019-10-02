@@ -54,9 +54,9 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_12.x | bash -
             apt-get install -y nodejs
             npm install
-            npm install nightwatch
-            npm install chromedriver
-            apt-get install -y libglib-2.0
+            npm init
+            npm install nightwatch --save-dev 
+            npm install chromedriver --save-dev
       - run:
           name: Start app
           command: |
