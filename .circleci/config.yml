@@ -60,6 +60,7 @@ jobs:
             sudo ./node_modules/.bin/selenium-standalone install
             sudo npm install nightwatch --save-dev  
             sudo npm install chromedriver --save-dev
+            chmod +x /node_modules/selenium-standalone/.selenium/selenium-server/3.141.5-server.jar
             #sudo npm install chrome
             #sudo npm install selenium-standalone@latest --save-dev
             #sudo ./node_modules/.bin/selenium-standalone install
