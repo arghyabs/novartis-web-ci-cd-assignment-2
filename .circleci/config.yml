@@ -58,7 +58,7 @@ jobs:
             npm install nightwatch --save-dev 
             npm install chromedriver --save-dev
             npm install chrome --save-dev
-            chmod +x chromedriver
+            chmod +x /home/circleci/repo/node_modules/chromedriver/lib/chromedriver/chromedriver
       - run:
           name: Start app
           command: |
