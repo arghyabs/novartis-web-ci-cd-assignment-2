@@ -22,7 +22,15 @@
         "browserName": "chrome",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-	"acceptInsecureCerts": true
+	"acceptInsecureCerts": true,
+	"chromeOptions" : {
+            "args": [
+              "headless",
+              "no-sandbox",
+              "disable-gpu",
+              "ignore-certificate-errors"
+            ],
+	    "binary" :"./node_modules/.bin/chrome.exe"
       }
     }
   }
