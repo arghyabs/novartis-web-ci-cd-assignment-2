@@ -53,13 +53,13 @@ jobs:
           command: |
             curl -sL https://deb.nodesource.com/setup_12.x |sudo -E  bash -
             sudo apt-get install nodejs
-            npm install
+            sudo npm install
             #sudo apt install default-jdk
             #npm install jdk
-            npm install nightwatch  
-            npm install chromedriver
-            npm install chrome
-            npm install selenium-standalone@latest -g
+            sudo npm install nightwatch  
+            sudo npm install chromedriver
+            sudo npm install chrome
+            sudo npm install selenium-standalone@latest -g
             #selenium-standalone start
       - run:
           name: Start app
