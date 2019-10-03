@@ -65,8 +65,8 @@ jobs:
             #sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
             #sudo sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
             sudo chmod -R 777 ./node_modules
-            npm install --save set-default-browser
-            set-default-browser chrome
+            sudo npm install --save set-default-browser
+            sudo ./node_modules/.bin/set-default-browser chrome
             #sudo npm install --save-dev webdriver-manager
             #sudo ./node_modules/webdriver-manager/bin/webdriver-manager update
             #sudo ./node_modules/webdriver-manager/bin/webdriver-manager start &
