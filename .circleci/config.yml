@@ -88,7 +88,8 @@ jobs:
           name: Start app
           command: |
             npm start &
-            curl http://localhost:3000
+            node -p "require('ip').address()" > logs/ip.log
+            curl http://$(cat logs/ip.log):3000
       - run:
           name: Run tests
           command: |
