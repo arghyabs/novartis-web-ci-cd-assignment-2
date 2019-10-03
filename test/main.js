@@ -1,4 +1,4 @@
-const siteUrl = 'http://${require(‘ip’).address()}:3000'
+const siteUrl = 'http://0.0.0.0:3000'
 
 module.exports = {
   'Checking application index page in Chrome': function (browser) {
