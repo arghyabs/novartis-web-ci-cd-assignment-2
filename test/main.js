@@ -1,4 +1,6 @@
-const hostname = process.env.HOST;
+var ip = require("ip");
+
+const hostname = ip.address();
 const siteUrl = 'http://'+hostname+':3000/';
 
 console.log(siteUrl);
