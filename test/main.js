@@ -3,7 +3,9 @@ module.exports = {
     browser
       .url("http://localhost:3000/")
       .pause(2000)
-      .assert.title("Novartis")
+      .getTitle(function(title) {
+     		this.assert.ok(title.includes("Novartis"));
+      })
       .pause(2000)
   },
   after: function (browser) {
