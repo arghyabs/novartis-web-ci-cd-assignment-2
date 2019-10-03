@@ -6,7 +6,7 @@
     "start_process" : true,
     "server_path" : "./node_modules/selenium-standalone/.selenium/selenium-server/3.141.5-server.jar",
     "log_path" : "",
-    "host" : "${require(‘ip’).address()}",
+    "host" : "localhost",
     "port" : 4444,
     "cli_args" : {
       "webdriver.chrome.driver" : "./node_modules/selenium-standalone/.selenium/chromedriver/2.43-x64-chromedriver"
@@ -15,8 +15,8 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://${require(‘ip’).address()}:3000",
-      "selenium_host" : "${require(‘ip’).address()}",
+      "launch_url" : "http://localhost",
+      "selenium_host" : "localhost",
       "selenium_port"  : 4444,
       "desiredCapabilities": {
         "browserName": "chrome",
