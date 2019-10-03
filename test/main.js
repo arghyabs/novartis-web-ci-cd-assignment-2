@@ -1,5 +1,5 @@
 const hostname = process.env.HOST;
-const siteUrl = 'http://${hostname}:3000/index.html';
+const siteUrl = 'http://'+hostname+':3000/';
 
 console.log(siteUrl);
 module.exports = {
