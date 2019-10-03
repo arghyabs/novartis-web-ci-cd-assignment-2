@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
             #- image: wecs/circle-ci-gcloud-node:0.1.0
-      - image: circleci/node:latest
+      - image: circleci/node:latest-browsers
         #- image: selenium/standalone-chrome:3.11.0
     working_directory: ~/repo
     environment:
