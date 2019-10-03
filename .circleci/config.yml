@@ -89,7 +89,7 @@ jobs:
           command: |
             npm start &
             node -p "require('ip').address()" > logs/ip.log
-            curl http://$(cat logs/ip.log):3000
+            wget --retry-connrefused --waitretry=2 -t 5 "http://$(cat logs/ip.log):3000" > /dev/null
       - run:
           name: Run tests
           command: |
