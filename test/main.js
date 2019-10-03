@@ -1,11 +1,9 @@
 module.exports = {
-  'Searching nightwatch in google': function (browser) {
+  'Checking application index page in Chrome': function (browser) {
     browser
-      .url("http://www.google.com/")
+      .url("http://localhost:3000/")
       .pause(2000)
-      .setValue('#search' , "Nightwatch js")
-      .pause(2000)
-      .keys(browser.Keys.ENTER)
+      .assert.title("Novartis")
       .pause(2000)
   },
   after: function (browser) {
