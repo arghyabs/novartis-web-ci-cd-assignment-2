@@ -1,5 +1,5 @@
 const hostname = process.env.HOST;
-const siteUrl = 'http://${hostname}:3000'
+const siteUrl = 'http://${hostname}:3000/index.html'
 
 module.exports = {
   'Checking application index page in Chrome': function (browser) {
