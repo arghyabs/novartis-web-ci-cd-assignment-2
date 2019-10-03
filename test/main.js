@@ -1,7 +1,9 @@
+const siteUrl = http://${require(‘ip’).address()}:3000
+
 module.exports = {
   'Checking application index page in Chrome': function (browser) {
     browser
-      .url("http://${require(‘ip’).address()}:3000/index.html")
+      .url(siteUrl)
       .pause(2000)
       .assert.titleContains('Novartis')
       .pause(2000)
