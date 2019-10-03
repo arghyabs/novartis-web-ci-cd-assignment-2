@@ -1,6 +1,5 @@
-const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-
-const siteUrl = 'http://${ip}:3000'
+const hostname = process.env.HOST;
+const siteUrl = 'http://${hostname}:3000'
 
 module.exports = {
   'Checking application index page in Chrome': function (browser) {
