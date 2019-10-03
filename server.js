@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 /* eslint-disable no-console */
 
 const port = process.env.PORT || 3000;
+const ip = process.env.IP || 'localhost';
 const app = express();
 
 app.use(morgan('dev'));
@@ -19,7 +20,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
-app.listen(port, (err) => {
+app.listen(port, ip, (err) => {
   if (err) {
     console.log(err);
   } else {
