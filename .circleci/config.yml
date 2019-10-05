@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build_test:
+  build_and_test:
     docker:
             #- image: wecs/circle-ci-gcloud-node:0.1.0
       - image: circleci/node:latest-browsers
