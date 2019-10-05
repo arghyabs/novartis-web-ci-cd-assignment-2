@@ -10,9 +10,6 @@ module.exports = {
     browser
       .url(siteUrl)
       .pause(2000)
-      .getTitle((title) => {
-        browser.assert.equal(title, 'Novartis');
-      })
       .expect.element('body').to.be.present;
        //.assert.titleContains('Novartis')
       //.pause(2000)
