@@ -4,6 +4,8 @@ set -e
 
 echo "Deploying to ${DEPLOYMENT_ENVIRONMENT}"
 
+apt-get install -qq -y gettext
+
 echo $ACCOUNT_KEY_STAGING > service_key.txt
 
 base64 -i service_key.txt -d > ${HOME}/gcloud-service-key.json
