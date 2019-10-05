@@ -1,13 +1,14 @@
 var ip = require("ip");
 
 const hostname = ip.address();
-const siteUrl = 'http://'+hostname+':3000/index.html';
+const siteUrl = 'http://'+hostname+':3000';
 
 console.log(siteUrl);
 module.exports = {
   'Checking application index page in Chrome': function (browser) {
+    console.log(siteUrl)
     browser
-      .url(${siteUrl})
+      .url(siteUrl)
       .pause(2000)
       .assert.titleContains('Novartis')
       .pause(2000)
