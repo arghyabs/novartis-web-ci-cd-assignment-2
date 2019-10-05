@@ -11,6 +11,9 @@ module.exports = {
       .url(siteUrl)
       .pause(2000)
       .expect.element('body').to.be.present;
+      .getTitle((title) => {
+        browser.assert.equal(title, 'Novartis');
+      })
       //.assert.titleContains('Novartis')
       //.pause(2000)
   },
