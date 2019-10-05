@@ -35,7 +35,7 @@ echo "${IMAGE} ${CIRCLE_SHA1}"
 
 docker build -t ${IMAGE} .
 docker tag ${IMAGE} gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
-gcloud auth configure-docker
+#gcloud auth configure-docker
 gcloud docker -- push gcr.io/${PROJECT_ID}/${IMAGE}:$CIRCLE_SHA1
 kubectl delete service $CONTAINER_NAME --ignore-not-found
 kubectl delete deployment $DEPLOYMENT_NAME --ignore-not-found
