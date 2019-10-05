@@ -12,7 +12,7 @@ module.exports = {
       .pause(2000)
       .expect.element('body').to.be.present;
       //.assert.titleContains('Novartis')
-      .pause(2000)
+      //.pause(2000)
   },
   after: function (browser) {
     browser
