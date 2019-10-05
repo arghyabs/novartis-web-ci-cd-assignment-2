@@ -122,6 +122,7 @@ jobs:
       DEPLOYMENT_ENVIRONMENT: staging       
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Build and Deploy
           command: |
